@@ -1,0 +1,17 @@
+{
+  "name": "Codeforces Problem Recommender",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nitish Kumar Dwivedi",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13",
+    "jquery": "^3.2.1",
+    "request-promise": "^4.2.1"
+  }
+}

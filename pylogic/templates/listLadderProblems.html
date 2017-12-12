@@ -1,0 +1,53 @@
+<html>
+    <head>
+         <meta name = "viewport" content="width=device-width, initial-scale=1">
+        <script>
+        window.$ = window.jQuery = require('jquery')
+        </script>
+        <script src="/static/bootstrap/js/jquery-3.2.1.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            }   
+            .backtomain{
+            margin: 0;
+            position: relative;
+            top:5;
+            left: 5;
+            }
+        </style>
+       
+    </head>
+<body>
+    <div id="backtomain">
+    <form class="backtomain" method="get" action="http://127.0.0.1:1234">
+        <input class="btn btn-default btn-sm" type="submit" value="Back To Main">
+    </form>
+    </div>
+    <div>
+    <div class="userhandle">
+        <h2> Hi, {{handle}} </h2>
+    </div>
+    <div>
+    <form id="handleBox" method="get" action="http://127.0.0.1:1234/updateLadder/{{handle}}">
+    <input class="btn btn-default btn-lg" type="submit" value="Update Ladder">
+    </form>
+    </div>
+    {%for i in range(N)%}
+    {%if vis[i] == "1" %}
+    <div>
+        <a href="http://codeforces.com/problemset/problem/{{A[i]}}/{{B[i]}}" target="_blank"> {{probName[i]}} </a>
+    </div>
+    {%else%}
+    <div>
+    <a href="#"> Problem Hidden </a>        
+    </div>
+    {%endif%}
+    
+    {%endfor%}
+</body>
+    </html>

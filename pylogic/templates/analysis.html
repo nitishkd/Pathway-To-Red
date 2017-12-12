@@ -1,0 +1,78 @@
+<html>
+    <head>
+         <meta name = "viewport" content="width=device-width, initial-scale=1">
+        <script>
+        window.$ = window.jQuery = require('jquery')
+        </script>
+        <script src="/static/bootstrap/js/jquery-3.2.1.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+        <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            }   
+            .backtomain{
+            margin: 0;
+            position: relative;
+            top:5;
+            left: 5;
+            }
+            .elementinline{
+                margin-top: 5px;
+            }
+            .userhandle{
+                color: blueviolet;
+            }
+            
+        </style>
+        <script>
+            //var $ = require("jquery");
+            function SaveOfflinePage(contestId, index)
+            {
+                alert(contestId + index);
+                var urls = '/offline/' + contestId + '/' +index
+                $.getJSON(urls, function(ret){
+                    alert('JSON got: ' + JSON.stringify(ret));
+                })
+            }
+            </script>
+    </head>
+<body>
+    <div id="backtomain">
+    <form class="backtomain" method="get" action="http://127.0.0.1:1234">
+            <input class="btn btn-default btn-sm" type="submit" value="Back To Main">
+    </form>
+    </div>
+    <div>
+    <div class="userhandle">
+        <h2> Hi, {{handle}} </h2>
+    </div>
+    <div class="jumbotron">
+    <div class="clearfix visible-xs-block"></div>
+    <div class="row">
+        
+    {%for prob in result%}
+        <div class="col-xs-4" style="height:160px;margin-top:5px">
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{prob}}</div>
+                <div class="panel-body">
+                    {%for pp in result[prob]%}
+                        <div class="elementinline">
+                        <a href="{{pp[1]}}" target="_blank"> {{pp[0][4]}} </a>
+                        <button onclick="SaveOfflinePage({{pp[0][1]}}, '{{pp[0][2]}}')" class="btn btn-primary btn-xs">Save Offline</button> 
+                        <button class="btn btn-primary btn-xs" target="_blank" onclick="window.open('http://127.0.0.1:1234/problems/offline/{{pp[0][1]}}/{{pp[0][2]}}','_blank')" > View Problem </button>
+                        </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    {%endfor%}
+    
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+    </html>

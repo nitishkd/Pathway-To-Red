@@ -1,2 +1,2 @@
 # Pathway-To-Red
-Pathway To Red is a Problem Recommender for Competitive Programming on Codeforces.
+Pathway to red in a Codeforces Problem Recommender which recommends competitive programming problems available on CodeForces for solving.
