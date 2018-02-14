@@ -6,3 +6,5 @@ NOTE:	Install all the dependencies which are present in package.json file.
 Visit my blog [here](http://blog.nitish.online/2017/07/pathway-to-red.html) for more details on this.
 
 Happy Coding :)
+
+UPDATE: Project secured 8th position at [Humblefool Hackathon](http://crowdsourcing.topcoder.com/humblefool-Hackathon/teams) organised by TopCoder. (team name : tooNaive )
