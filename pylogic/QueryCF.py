@@ -88,21 +88,10 @@ class QueryCodeForces:
         print("user "+ handle+" processing done")
         
     def EvaluateDifficulty(self, solvedCount):             
-        #TODO: implement this using inverse lograthmic fxn
-        res = 0
-        if(solvedCount < 125):
-            res = 6
-        elif(solvedCount < 250):
-            res = 5
-        elif(solvedCount < 750):
-            res = 4
-        elif(solvedCount < 2000):
-            res = 3
-        elif(solvedCount < 4000):
-            res = 2
-        else:
-            res = 1
-
+        coeff = [ 0.00000000e+00 ,-5.57468040e-03 , 3.96749217e-06, -1.43253771e-09,  2.37559930e-13, -1.45370970e-17]
+        x = solvedCount
+        res = coeff[0] + x*coeff[1] + pow(x,2)*coeff[2] + pow(x,3)*coeff[3] +pow(x,4)*coeff[4] +pow(x,5)*coeff[5] + 6
+        
         return res
     
     def problemsetUpdater(self):
